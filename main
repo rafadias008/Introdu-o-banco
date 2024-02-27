@@ -1,0 +1,121 @@
+import java.util.Scanner;
+
+public class Main {
+
+  static class cliente{
+    
+    String nome = "Rafael";
+    long cpf = 12345678989L;
+    int senha = 1234;
+    String tipo = "Comum";
+
+    void saque() {
+        System.out.println("Saque!");
+    }
+    void deposito() {
+        System.out.println("Deposito!");
+    }
+    void transferencia() {
+        System.out.println("Transferencia!"); 
+    }
+    void extrato() {
+        System.out.println("Extrato!"); 
+    }
+  }
+
+  static class gerente{
+
+    String nome = "João";
+    long cpf = 11234567889L;
+    int senha = 3214;
+    String tipo = "Gerente";
+
+    void criarCliente(){
+      System.out.println("Criar cliente!");
+    }
+    void excluirCliente(){
+      System.out.println("Excluir cliente!");
+    }
+    void listarClientes(){
+      System.out.println("Listar clientes!");
+    }
+    void transferencia(){
+      System.out.println("Transferencia!");
+    }
+  }
+
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("Seja bem-vindo ao Banco do Brasil!");
+    System.out.print("Digite 1 para acessar o sistema como cliente\n Digite 2 para acessar o sistema como gerente");
+
+    int acesso = input.nextInt();
+
+    if (acesso == 1){
+
+      cliente cliente = new cliente();
+        
+      System.out.print("Digite o CPF: ");
+      long cpf = input.nextLong();
+      System.out.print("Digite a senha: ");
+      int senha = input.nextInt();
+
+      if (cliente.cpf == cpf && cliente.senha == senha){
+        System.out.println("Bem-vindo, " + cliente.nome);
+
+        System.out.println("Selecione a operação: ");
+        System.out.print("1- Saque\n2- Deposito\n3- Transferencia\n4- Extrato");
+        int operacao = input.nextInt();
+
+        if (operacao == 1){
+          cliente.saque();
+        }else if (operacao == 2){
+          cliente.deposito();
+        }else if (operacao == 3){
+          cliente.transferencia();
+        } else if (operacao == 4){
+          cliente.extrato();
+        } else {
+          System.out.println("Operação inválida!");
+        }
+      } else {
+        System.out.println("CPF ou senha incorretos");
+      }
+      
+    }else if (acesso == 2){
+      gerente gerente = new gerente();
+
+      System.out.print("Digite o CPF: ");
+      long cpf = input.nextLong();
+      System.out.print("Digite a senha: ");
+      int senha = input.nextInt();
+
+      if(gerente.cpf == cpf && gerente.senha == senha){
+
+        System.out.println("Bem-vindo, " + gerente.nome);
+        
+        System.out.println("Selecione a operação: ");
+        System.out.print("1- Criar Cliente\n2- Excluir Cliente\n3- Listar Clientes\n4- Transferencia");
+        int operacao = input.nextInt();
+
+        if (operacao == 1){
+          gerente.criarCliente();
+        } else if (operacao == 2){
+          gerente.excluirCliente();
+        } else if (operacao == 3){
+          gerente.listarClientes();
+        } else if (operacao == 4){
+          gerente.transferencia();
+        } else {
+          System.out.println("Operação inválida!");
+        }
+      }else {
+        System.out.println("CPF ou senha incorretos");
+      }
+      
+    }else {
+      System.out.println("Opção invalida!");
+    }
+  }
+}
