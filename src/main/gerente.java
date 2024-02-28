@@ -1,9 +1,9 @@
 package main;
-
 import java.util.Scanner;
 
 public class gerente{
 
+  gerente novoGerente = new gerente();
   Scanner input = new Scanner(System.in);
 
   String nome;
@@ -11,6 +11,21 @@ public class gerente{
   int senha;
   String tipo = "Gerente";
 
+
+  void criarGerente(){
+
+    System.out.println("Criar Gerente!\n");
+
+    System.out.print("Digite o CPF: ");
+    novoGerente.cpf = input.nextLong();
+    System.out.print("Digite o nome: ");
+    novoGerente.nome = input.next();
+    System.out.print("Digite a senha: ");
+    novoGerente.senha = input.nextInt();
+    novoGerente.tipo = "Gerente";
+
+    System.out.println("\nGerente criado com sucesso!");
+  }
   void criarCliente(){
 
     int tipo_conta;

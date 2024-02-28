@@ -1,6 +1,5 @@
 package main;
 
-import main.gerentePrincipal;
 import main.gerente;
 import main.cliente;
 import java.util.Scanner;
@@ -60,43 +59,42 @@ public class Main {
 
       }else if (acesso == 2){
         gerente gerente = new gerente();
-        gerentePrincipal gererentePrincipal = new gerentePrincipal();
 
         System.out.print("Digite o CPF: ");
         long cpf = input.nextLong();
         System.out.print("Digite a senha: ");
         int senha = input.nextInt();
 
-        if(gerente.cpf == cpf && gerente.senha == senha || gererentePrincipal.cpf == cpf && gererentePrincipal.senha == senha){
+        if(gerente.cpf == cpf && gerente.senha == senha){
           int operacao;
-
+          
           System.out.println("Bem-vindo");
           do {
               
-              System.out.print("1- Criar Cliente\n2- Excluir Cliente\n3- Listar Clientes\n4- Transferencia\n5- Sair\n");
-             System.out.print("\nSelecione a operação: ");
+              System.out.print("1- Criar Gerente\n2- Criar Cliente\n3- Excluir Cliente\n4- Listar Clientes\n5- Transferencia\n6- Sair\n");
+              System.out.print("\nSelecione a operação: ");
               operacao = input.nextInt();
 
               if (operacao == 1){
-                gerente.criarCliente();
+                gerente.criarGerente();
               } else if (operacao == 2){
-                gerente.excluirCliente();
+                gerente.criarCliente();
               } else if (operacao == 3){
-                gerente.listarClientes();
+                gerente.excluirCliente();
               } else if (operacao == 4){
+                gerente.listarClientes();
+              } else if (operacao == 5){
                 gerente.transferencia();
-              }else if(operacao == 5){
+              }else if(operacao == 6){
                 System.out.println("Saindo...");
                 break;
               } else {
                 System.out.println("Operação inválida!");
               }
-          }while(operacao != 5);  
+            }while(operacao != 6);  
           }else{
             System.out.println("CPF ou senha incorretos");
           }
-
-          
 
       }else if(acesso == 3){
         System.out.println("Saindo do sistema...");
