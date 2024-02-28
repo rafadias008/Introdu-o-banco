@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class gerente{
 
-  gerente novoGerente = new gerente();
   Scanner input = new Scanner(System.in);
 
   String nome;
@@ -14,6 +13,7 @@ public class gerente{
 
   void criarGerente(){
 
+    gerente novoGerente = new gerente();
     System.out.println("Criar Gerente!\n");
 
     System.out.print("Digite o CPF: ");
