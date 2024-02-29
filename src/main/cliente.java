@@ -1,25 +1,68 @@
 package main;
-
 import java.util.Scanner;
 
 public class cliente{
 
-  String nome;
-  long cpf;
-  int senha;
-  String tipo;
-  int saldo;
+  //atributos da classe
+  private String nome = "João";
+  private String cpf = "123456789-89";
+  private int senha = 1234;
+  private String tipo = "Comum";
+  private double saldo = 1000;
 
-  void saque() {
+  //---------------------------------------------------------
+  //---------------------------------------------------------
+  // Métodos para acessar as variáveis privadas
+  public String getNome() {
+    return nome;
+  }
+  public String getCpf() {
+    return cpf;
+  }
+  public int getSenha() {
+    return senha;
+  }
+  public String getTipo() {
+    return tipo;
+  }
+  public double getSaldo() {
+    return saldo;
+  }
+  
+
+  //-----------------------------------------------------------
+  //-----------------------------------------------------------
+  //metodo de retorno das variaveis ( alterar)
+  public void setNome(String nome){
+    this.nome = nome;
+  }
+  public void setCpf (String cpf){
+    this.cpf = cpf;
+  }
+  public void setSenha(int senha){
+    this.senha = senha;
+  }
+  public void setTipo(String tipo){
+    this.tipo = tipo;
+  }
+  public void setSaldo(double saldo){
+    this.saldo = saldo;
+  }
+  
+
+  //----------------------------------------------------------------
+  //----------------------------------------------------------------
+  //metodos da classe 
+  public void saque() {
     System.out.println("Saque!");
   }
-  void deposito() {
+  public void deposito() {
     System.out.println("Deposito!");
   }
-  void transferencia() {
+  public void transferencia() {
     System.out.println("Transferencia!"); 
   } 
-  void extrato() {
+  public void extrato() {
     System.out.println("Extrato!"); 
   }
 }

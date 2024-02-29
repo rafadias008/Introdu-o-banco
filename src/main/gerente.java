@@ -5,11 +5,45 @@ public class gerente{
 
   Scanner input = new Scanner(System.in);
 
-  String nome;
-  long cpf;
-  int senha;
-  String tipo = "Gerente";
+  private String nomeG;
+  private String cpfG;
+  private int senhaG;
+  private String tipoG;
+  
+  private String nomePrinG = "Administrador";
+  private String cpfPrinG = "123456";
+  private int senhaPrinG = 1234;
+  private String tipoPrinG = "Gerente Administrador";
 
+  // Métodos para acessar as variáveis privadas dos gerentes
+  public String getNomeG() {
+    return nomeG;
+  }
+  public String getCpfG() {
+    return cpfG;
+  }
+  public int getSenhaG() {
+    return senhaG;
+  }
+  public String getTipoG() {
+    return tipoG;
+  }
+
+  // Métodos para acessar as variaveis privadas de atributos do gerente admins
+  // Métodos para acessar as variáveis privadas
+  public String getNomePrin() {
+    return nomePrinG;
+  }
+  public String getCpfPrin() {
+    return cpfPrinG;
+  }
+  public int getSenhaPrin() {
+    return senhaPrinG;
+  }
+  public String getTipoPrin() {
+    return tipoPrinG;
+  }
+  
 
   void criarGerente(){
 
@@ -17,12 +51,12 @@ public class gerente{
     System.out.println("Criar Gerente!\n");
 
     System.out.print("Digite o CPF: ");
-    novoGerente.cpf = input.nextLong();
+    novoGerente.cpfG = input.next();
     System.out.print("Digite o nome: ");
-    novoGerente.nome = input.next();
+    novoGerente.nomeG = input.next();
     System.out.print("Digite a senha: ");
-    novoGerente.senha = input.nextInt();
-    novoGerente.tipo = "Gerente";
+    novoGerente.senhaG = input.nextInt();
+    novoGerente.tipoG = "Gerente";
 
     System.out.println("\nGerente criado com sucesso!");
   }
@@ -35,23 +69,23 @@ public class gerente{
     System.out.println("Criar cliente!\n");
 
     System.out.print("Digite o CPF: ");
-    novoCliente.cpf = input.nextLong();
+    novoCliente.setCpf(input.nextLine());
     System.out.print("Digite o nome: ");
-    novoCliente.nome = input.next();
+    novoCliente.setNome(input.nextLine());
     System.out.print("Digite a senha: ");
-    novoCliente.senha = input.nextInt();
+    novoCliente.setSenha(input.nextInt()); 
     System.out.print("Digite o tipo (1-Comum / 2-Plus): ");
     tipo_conta = input.nextInt();
 
     if (tipo_conta == 1){
-      novoCliente.tipo = "Comum";
+      novoCliente.setTipo("Comum");
     } else if (tipo_conta == 2){
-      novoCliente.tipo = "Plus";
+      novoCliente.setTipo("Plus");
     } else {
       System.out.println("Tipo inválido!");
     }
     System.out.print("Digite o saldo inicial: ");
-    novoCliente.saldo = input.nextInt();
+    novoCliente.setSaldo(input.nextDouble());
     System.out.println("\nCliente criado com sucesso!");
 
   }
