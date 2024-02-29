@@ -1,5 +1,8 @@
 package main;
 import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class gerente{
 
@@ -11,7 +14,7 @@ public class gerente{
   private String tipoG;
   
   private String nomePrinG = "Administrador";
-  private String cpfPrinG = "123456";
+  private String cpfPrinG = "0000";
   private int senhaPrinG = 1234;
   private String tipoPrinG = "Gerente Administrador";
 
@@ -30,7 +33,6 @@ public class gerente{
   }
 
   // Métodos para acessar as variaveis privadas de atributos do gerente admins
-  // Métodos para acessar as variáveis privadas
   public String getNomePrin() {
     return nomePrinG;
   }
@@ -64,28 +66,31 @@ public class gerente{
 
     int tipo_conta;
 
-    cliente novoCliente = new cliente();
+    cliente cliente = new cliente();
 
     System.out.println("Criar cliente!\n");
 
     System.out.print("Digite o CPF: ");
-    novoCliente.setCpf(input.nextLine());
+    cliente.setCpf(input.next());
     System.out.print("Digite o nome: ");
-    novoCliente.setNome(input.nextLine());
+    cliente.setNome(input.next());
     System.out.print("Digite a senha: ");
-    novoCliente.setSenha(input.nextInt()); 
+    cliente.setSenha(input.nextInt()); 
     System.out.print("Digite o tipo (1-Comum / 2-Plus): ");
     tipo_conta = input.nextInt();
 
     if (tipo_conta == 1){
-      novoCliente.setTipo("Comum");
+      cliente.setTipo("Comum");
     } else if (tipo_conta == 2){
-      novoCliente.setTipo("Plus");
+      cliente.setTipo("Plus");
     } else {
       System.out.println("Tipo inválido!");
     }
     System.out.print("Digite o saldo inicial: ");
-    novoCliente.setSaldo(input.nextDouble());
+    cliente.setSaldo(input.nextDouble());
+
+    salvarCliente("Cliente.txt", new cliente[]{cliente});
+
     System.out.println("\nCliente criado com sucesso!");
 
   }
@@ -98,4 +103,22 @@ public class gerente{
   void transferencia(){
     System.out.println("Transferencia!");
   }
+
+  // Método para salvar em um arquivo
+  public static void salvarCliente(String nomeArquivo, cliente[] clientes) {
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
+        // Escrever cabeçalhos
+        writer.write("Nome, CPF, Senha, Saldo, Tipo\n");
+
+        // Escrever dados dos objetos
+        for (cliente novo : clientes) {
+            writer.write(novo.getNome() + ", " + novo.getCpf() + ", " + novo.getSenha() + ", " + novo.getSaldo() + ", " + novo.getTipo() + "\n");
+        }
+
+        System.out.println("Dados salvos com sucesso em " + nomeArquivo);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+  }
+
 }

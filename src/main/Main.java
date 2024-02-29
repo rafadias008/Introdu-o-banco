@@ -1,7 +1,5 @@
 package main;
 
-import main.gerente;
-import main.cliente;
 import java.util.Scanner;
 
 public class Main {
@@ -107,7 +105,7 @@ public class Main {
         System.out.print("Digite a senha: ");
         int senha = input.nextInt();
 
-        if(gerente.getCpfPrin() == cpf && gerente.getSenhaPrin() == senha){
+        if(gerente.getCpfPrin().equals(cpf) && gerente.getSenhaPrin() == senha){
           int operacao;
           
           System.out.println("Bem-vindo , " + gerente.getNomePrin());

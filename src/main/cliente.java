@@ -1,14 +1,17 @@
 package main;
 import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class cliente{
 
   //atributos da classe
-  private String nome = "João";
-  private String cpf = "123456789-89";
-  private int senha = 1234;
-  private String tipo = "Comum";
-  private double saldo = 1000;
+  private String nome;
+  private String cpf;
+  private int senha;
+  private String tipo;
+  private double saldo;
 
   //---------------------------------------------------------
   //---------------------------------------------------------
@@ -32,11 +35,12 @@ public class cliente{
 
   //-----------------------------------------------------------
   //-----------------------------------------------------------
-  //metodo de retorno das variaveis ( alterar)
+
+  //metodo de contrutor do cliente
   public void setNome(String nome){
     this.nome = nome;
   }
-  public void setCpf (String cpf){
+  public void setCpf(String cpf){
     this.cpf = cpf;
   }
   public void setSenha(int senha){
@@ -48,7 +52,6 @@ public class cliente{
   public void setSaldo(double saldo){
     this.saldo = saldo;
   }
-  
 
   //----------------------------------------------------------------
   //----------------------------------------------------------------
@@ -65,4 +68,7 @@ public class cliente{
   public void extrato() {
     System.out.println("Extrato!"); 
   }
+
+  
+
 }
