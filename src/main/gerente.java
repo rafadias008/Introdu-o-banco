@@ -89,8 +89,6 @@ public class gerente{
     System.out.print("Digite o saldo inicial: ");
     cliente.setSaldo(input.nextDouble());
 
-    salvarCliente("Cliente.txt", new cliente[]{cliente});
-
     System.out.println("\nCliente criado com sucesso!");
 
   }
@@ -104,21 +102,7 @@ public class gerente{
     System.out.println("Transferencia!");
   }
 
-  // Método para salvar em um arquivo
-  public static void salvarCliente(String nomeArquivo, cliente[] clientes) {
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
-        // Escrever cabeçalhos
-        writer.write("Nome, CPF, Senha, Saldo, Tipo\n");
-
-        // Escrever dados dos objetos
-        for (cliente novo : clientes) {
-            writer.write(novo.getNome() + ", " + novo.getCpf() + ", " + novo.getSenha() + ", " + novo.getSaldo() + ", " + novo.getTipo() + "\n");
-        }
-
-        System.out.println("Dados salvos com sucesso em " + nomeArquivo);
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-  }
+  
+  
 
 }

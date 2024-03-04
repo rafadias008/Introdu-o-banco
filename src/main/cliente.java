@@ -13,6 +13,16 @@ public class cliente{
   private String tipo;
   private double saldo;
 
+  //contrutor do cliente
+  public Cliente(){
+    this.cpf = "";
+    this.nome = "";
+    this.senha = 0;
+    this.saldo =  0;
+    this.tipo = "";
+
+  }
+
   //---------------------------------------------------------
   //---------------------------------------------------------
   // Métodos para acessar as variáveis privadas
