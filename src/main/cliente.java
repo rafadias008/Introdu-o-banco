@@ -6,6 +6,8 @@ import java.io.IOException;
 
 public class cliente{
 
+  Scanner input = new Scanner(System.in);
+
   //atributos da classe
   private String nome;
   private String cpf;
@@ -14,12 +16,12 @@ public class cliente{
   private double saldo;
 
   //contrutor do cliente
-  public Cliente(){
-    this.cpf = "";
-    this.nome = "";
-    this.senha = 0;
-    this.saldo =  0;
-    this.tipo = "";
+  public cliente(){
+    this.cpf = "12345678910";
+    this.nome = "Rafael";
+    this.senha = 1234;
+    this.saldo =  1000;
+    this.tipo = "Comum";
 
   }
 
@@ -67,13 +69,27 @@ public class cliente{
   //----------------------------------------------------------------
   //metodos da classe 
   public void saque() {
-    System.out.println("Saque!");
+    
+    System.out.println("Saque!\n");
+
+    System.out.print("Digite o valor para saque: ");
+    double valor = input.nextDouble();
+    setSaldo(getSaldo() - valor);
+    System.out.println("\nValor debitado!\nSaldo atual: " + getSaldo() + "\n") ;
+
   }
   public void deposito() {
-    System.out.println("Deposito!");
+    System.out.println("Deposito!\n");
+
+    System.out.print("Digite o valor para deposito: ");
+    double valor = input.nextDouble();
+    setSaldo(getSaldo() + valor);
+    System.out.println("\nValor depositado!\nSaldo atual: " + getSaldo() + "\n");
+    
   }
   public void transferencia() {
     System.out.println("Transferencia!"); 
+
   } 
   public void extrato() {
     System.out.println("Extrato!"); 
