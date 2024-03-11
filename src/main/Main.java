@@ -12,8 +12,7 @@ public class Main {
       System.out.print("\nSeja bem-vindo ao Banco do Brasil!\n\n");
       System.out.println("1- Acesso como Cliente!");
       System.out.println("2- Acesso como Gerente!");
-      System.out.println("3- Acesso como Administrador!");
-      System.out.println("4- sair do sistema!\n");
+      System.out.println("3- sair do sistema!\n");
       System.out.print("Digite a opção desejada: ");
 
       acesso = input.nextInt();
@@ -32,9 +31,10 @@ public class Main {
           
           System.out.println("Bem-vindo, " + cliente.getNome());
           do {
-            
-            System.out.println("Selecione a operação: ");
+
             System.out.print("1- Saque\n2- Deposito\n3- Transferencia\n4- Extrato\n5- Sair\n");
+            System.out.println("Selecione a operação: ");
+            
             operacao = input.nextInt();
 
             if (operacao == 1){
@@ -65,7 +65,7 @@ public class Main {
         System.out.print("Digite a senha: ");
         int senha = input.nextInt();
 
-        if(gerente.getCpfG() == cpf && gerente.getSenhaG() == senha){
+        if(gerente.getCpfG().equals(cpf) && gerente.getSenhaG() == senha){
           int operacao;
           
           System.out.println("Bem-vindo , " + gerente.getNomeG());
@@ -97,53 +97,13 @@ public class Main {
           }else{
             System.out.println("CPF ou senha incorretos");
           }
-      }else if (acesso == 3){
-        gerente gerente = new gerente();
-
-        System.out.print("Digite o CPF: ");
-        String cpf = input.next();
-        System.out.print("Digite a senha: ");
-        int senha = input.nextInt();
-
-        if(gerente.getCpfPrin().equals(cpf) && gerente.getSenhaPrin() == senha){
-          int operacao;
-          
-          System.out.println("Bem-vindo , " + gerente.getNomePrin());
-          do {
-              
-              System.out.print("1- Criar Gerente\n2- Criar Cliente\n3- Excluir Cliente\n4- Listar Clientes\n5- Transferencia\n6- Sair\n");
-              System.out.print("\nSelecione a operação: ");
-              operacao = input.nextInt();
-
-              if (operacao == 1){
-                gerente.criarGerente();
-              } else if (operacao == 2){
-                gerente.criarCliente();
-              } else if (operacao == 3){
-                gerente.excluirCliente();
-              } else if (operacao == 4){
-                gerente.listarClientes();
-              } else if (operacao == 5){
-                gerente.transferencia();
-              }else if(operacao == 6){
-                System.out.println("Saindo...");
-                break;
-              } else {
-                System.out.println("Operação inválida!");
-              }
-            }while(operacao != 6);  
-
-          }else{
-            System.out.println("CPF ou senha incorretos");
-          }
-
-      }else if(acesso == 4){
+      }else if(acesso == 3){
         System.out.println("Saindo do sistema...");
         break;
       }else {
         System.out.println("Opção invalida!");
       }
-    }while(acesso != 4);
+    }while(acesso != 3);
     
   }
 }

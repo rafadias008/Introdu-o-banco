@@ -1,18 +1,13 @@
 package main;
 import java.util.Scanner;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class cliente{
 
   Scanner input = new Scanner(System.in);
 
   //atributos da classe
-  private String nome;
-  private String cpf;
+  private String nome, cpf;
   private int senha;
-  private String tipo;
   private double saldo;
 
   //contrutor do cliente
@@ -21,13 +16,19 @@ public class cliente{
     this.nome = "Rafael";
     this.senha = 1234;
     this.saldo =  1000;
-    this.tipo = "Comum";
 
+  }
+  
+  public cliente(String nome, String cpf, int senha, double saldo){
+    this.nome = nome;
+    this.cpf = cpf;
+    this.senha = senha;
+    this.saldo = saldo;
   }
 
   //---------------------------------------------------------
   //---------------------------------------------------------
-  // Métodos para acessar as variáveis privadas
+  // Métodos para receber os atributos privados da classe
   public String getNome() {
     return nome;
   }
@@ -37,18 +38,14 @@ public class cliente{
   public int getSenha() {
     return senha;
   }
-  public String getTipo() {
-    return tipo;
-  }
   public double getSaldo() {
     return saldo;
   }
-  
 
   //-----------------------------------------------------------
   //-----------------------------------------------------------
 
-  //metodo de contrutor do cliente
+  //metodos para acessar e alterar os atributos privado da classe
   public void setNome(String nome){
     this.nome = nome;
   }
@@ -57,9 +54,6 @@ public class cliente{
   }
   public void setSenha(int senha){
     this.senha = senha;
-  }
-  public void setTipo(String tipo){
-    this.tipo = tipo;
   }
   public void setSaldo(double saldo){
     this.saldo = saldo;

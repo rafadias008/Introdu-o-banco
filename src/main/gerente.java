@@ -1,24 +1,32 @@
 package main;
 import java.util.Scanner;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+
 
 public class gerente{
 
   Scanner input = new Scanner(System.in);
 
-  private String nomeG;
-  private String cpfG;
+  private String nomeG, cpfG,tipoG;
   private int senhaG;
-  private String tipoG;
   
-  private String nomePrinG = "Administrador";
-  private String cpfPrinG = "0000";
-  private int senhaPrinG = 1234;
-  private String tipoPrinG = "Gerente Administrador";
+  //construtor adm principal
+  public gerente(){
+    this.cpfG = "0000";
+    this.nomeG = "Administrador";
+    this.senhaG = 1234;
+    this.tipoG = "ADM";
+  }
 
-  // Métodos para acessar as variáveis privadas dos gerentes
+  //contrutor para novos gerentes
+  public gerente(String nomeG, String cpfG, int senhaG, String tipoG){
+    this.cpfG = cpfG;
+    this.nomeG = nomeG;
+    this.senhaG = senhaG;
+    this.tipoG = tipoG;
+
+  }
+
+  // Métodos para receber os atributos privados dos gerentes
   public String getNomeG() {
     return nomeG;
   }
@@ -32,71 +40,55 @@ public class gerente{
     return tipoG;
   }
 
-  // Métodos para acessar as variaveis privadas de atributos do gerente admins
-  public String getNomePrin() {
-    return nomePrinG;
+  //metodos para acessar e alterar os atributos privados dos gerentes
+  public void setCpfG(String cpfG){
+    this.cpfG = cpfG;
   }
-  public String getCpfPrin() {
-    return cpfPrinG;
+  public void setNomeG(String nomeG){
+    this.nomeG = nomeG;
   }
-  public int getSenhaPrin() {
-    return senhaPrinG;
+  public void setSenhaG(int senhaG){
+    this.senhaG = senhaG;
   }
-  public String getTipoPrin() {
-    return tipoPrinG;
+  public void setTipoG(String tipoG){
+    this.tipoG = tipoG;
   }
   
-
+  //metodos da classe
   void criarGerente(){
 
-    gerente novoGerente = new gerente();
-    System.out.println("Criar Gerente!\n");
-
-    System.out.print("Digite o CPF: ");
-    novoGerente.cpfG = input.next();
-    System.out.print("Digite o nome: ");
-    novoGerente.nomeG = input.next();
-    System.out.print("Digite a senha: ");
-    novoGerente.senhaG = input.nextInt();
-    novoGerente.tipoG = "Gerente";
-
-    System.out.println("\nGerente criado com sucesso!");
   }
   void criarCliente(){
 
-    int tipo_conta;
+    cliente novoCliente = new cliente();
 
-    cliente cliente = new cliente();
+    System.out.println("Criar novo cliente!\n");
 
-    System.out.println("Criar cliente!\n");
+    System.out.print("Informe o nome: ");
+    novoCliente.setNome(input.next());
+    System.out.print("\nInforme o CPF: ");
+    novoCliente.setCpf(input.next());
+    System.out.print("\nInforme a senha: ");
+    novoCliente.setSenha(input.nextInt());
+    System.out.print("\nInforme o saldo inicial: ");
+    novoCliente.setSaldo(input.nextDouble());
 
-    System.out.print("Digite o CPF: ");
-    cliente.setCpf(input.next());
-    System.out.print("Digite o nome: ");
-    cliente.setNome(input.next());
-    System.out.print("Digite a senha: ");
-    cliente.setSenha(input.nextInt()); 
-    System.out.print("Digite o tipo (1-Comum / 2-Plus): ");
-    tipo_conta = input.nextInt();
-
-    if (tipo_conta == 1){
-      cliente.setTipo("Comum");
-    } else if (tipo_conta == 2){
-      cliente.setTipo("Plus");
-    } else {
-      System.out.println("Tipo inválido!");
-    }
-    System.out.print("Digite o saldo inicial: ");
-    cliente.setSaldo(input.nextDouble());
-
-    System.out.println("\nCliente criado com sucesso!");
+    System.out.println("\nCliente criado com sucesso!\n");
 
   }
   void excluirCliente(){
     System.out.println("Excluir cliente!");
   }
   void listarClientes(){
+
+    cliente clientes = new cliente();
+
     System.out.println("Listar clientes!");
+
+    System.out.println("Nome: " + clientes.getNome());
+    System.out.println("CPF: " + clientes.getCpf());
+    System.out.println("Saldo: " + clientes.getSaldo());
+    
   }
   void transferencia(){
     System.out.println("Transferencia!");
